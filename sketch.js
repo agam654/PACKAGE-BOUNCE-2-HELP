@@ -14,7 +14,7 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
-	
+
 
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
@@ -32,7 +32,7 @@ function setup() {
 	world = engine.world;
 
 	
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.58, isStatic:false})
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.58, isStatic:true})
 	World.add(world, packageBody);
 	
 
@@ -42,7 +42,7 @@ function setup() {
 
 
 	Engine.run(engine);
-  
+}
 
 
 
@@ -57,7 +57,6 @@ function draw() {
 
 function keyPressed() {
  if (keyCode === DOWN_ARROW) {
-
+	Matter.Body.setStatic( packageBody, false);
  }
-}
 }
